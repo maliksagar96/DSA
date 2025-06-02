@@ -68,12 +68,14 @@ int main() {
   map[1] = "kela";
 
   // bool present = chechValue(map, "banana"); 
-  bool key = chechKey(map, 100); 
+  // bool key = chechKey(map, 100); 
 
-  for(auto& pair:map) {
-    cout<<"Key = "<<pair.first<<endl;
-    cout<<"Value = "<<pair.second<<endl;    
-  }
+  // for(auto& pair:map) {
+  //   cout<<"Key = "<<pair.first<<endl;
+  //   cout<<"Value = "<<pair.second<<endl;    
+  // }
+
+  cout<<map.end()<<endl;
 
   return 0;
 }
