@@ -23,7 +23,6 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
       set<vector<int>> unique_result;
-        vector<vector<int>> result;
       for(int i = 0;i<nums.size()-2;i++) {
         for(int j = i+1;j<nums.size() -1;j++) {
           for(int k = j+1;k<nums.size();k++) {
