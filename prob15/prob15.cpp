@@ -1,37 +1,37 @@
 #include <iostream> 
 #include <vector>
 #include <set>
+#include <algorithm>
+
 
 using namespace std;
 
 class Solution {
 public:
-    vector<vector<int>> threeSum(vector<int>& nums) {
-        vector<vector<int>> result;
-        sort(nums.begin(), nums.end());
+  vector<vector<int>> threeSum(vector<int>& nums) {
+    set<vector<int>> hashSet;
+    sort(nums.begin(), nums.end());
+    int sz = nums.size()-1;
+    for(int i = 0; i < nums.size()-2; ++i) {      
+      
+      int left = i+1, right = sz;
 
-        for(int i = 0; i < nums.size(); ++i) {
-          if(i > 0 && nums[i] == nums[i-1]) continue; // skip duplicates for i
-          int left = i + 1, right = nums.size() - 1;
-
-          while(left < right) {
-            int sum = nums[i] + nums[left] + nums[right];
-
-            if(sum == 0) {
-              result.push_back({nums[i], nums[left], nums[right]});
-              while(left < right && nums[left] == nums[left+1]) ++left;  // skip duplicate left
-              while(left < right && nums[right] == nums[right-1]) --right; // skip duplicate right
-              ++left; --right;
-              } else if(sum < 0) {
-                ++left; 
-              } else {
-                --right;
-              }
-            }
+      while(left < right) {
+        int sum = nums[i] + nums[left] + nums[right];        
+        if(sum == 0) {
+          hashSet.insert({nums[i], nums[left], nums[right]});
+          left++;right--;
+        }        
+        else if(sum > 0) {
+          right--;
         }
-
-        return result;
+        else{
+          left++;
+        }        
+      }
     }
+    return vector<vector<int>> (hashSet.begin(), hashSet.end());
+  }
 };
 
 
