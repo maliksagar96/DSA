@@ -1,3 +1,14 @@
+/*
+
+Another Easy problem using hashmap. 
+The only tricky thing here is that check mapping of characters from s to t and t to s both. Initially I thought one way should be enough. 
+
+If you are still not able to do this easy hashmap problem then follow the 70 days DSA plan properly. By this point you should be able to 
+code these kind of problems with ease.
+
+*/
+
+
 #include <iostream>
 #include <string>
 #include <unordered_map>
