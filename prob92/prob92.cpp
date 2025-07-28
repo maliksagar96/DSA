@@ -13,47 +13,27 @@ class ListNode{
 class Solution {
 public:
 
-    ListNode* reverselist(ListNode* head) {
-      ListNode* next = nullptr;
-      ListNode* prev = nullptr;
-      ListNode* curr = head;
-
-      while(curr) {
-        next = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = next;
-      }
-
-      return prev;
-    }
-
-    ListNode* cutList(ListNode* head, int left, int right) {
-      
-      ListNode* leftList = head;
-      int counter = 0;
-      while(left < counter) {
-        leftList = leftList->next;
-        counter++;
-      }
-      ListNode* middleList = leftList->next;
-      leftList->next = nullptr;
-
-      
-
-      ListNode* cutList = head;
-      while(counter < pos) {
-        cutList = head->next;
-        counter++;
-      }
-      
-      cutList->next = nullptr;
-      return cutList;
-
-    }
-
     ListNode* reverseBetween(ListNode* head, int left, int right) {
-      
+      if(!head || left = right) return head;
+
+      ListNode* dummy = new ListNode(-1, head);
+
+      ListNode *prev = dummy;
+
+      for(int i = 1;i<left;i++) {
+        prev = prev->next;
+      }
+
+      ListNode *curr = prev->next;
+      for(int i = 0;i<right-left;i++) {
+        ListNode *toMove = curr->next;
+        curr->next = toMove->next;
+        toMove->next = prev->next;
+        prev->next = toMove;
+      }
+
+      return dummy->next;
+
     }
 };
 
