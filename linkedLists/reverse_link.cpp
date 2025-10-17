@@ -50,10 +50,7 @@ int main() {
     cout<<temp_rev->value<<endl;
     temp_rev = temp_rev->next;
   }
-
-
  
-  
   delete first;
   delete second;
   delete third;

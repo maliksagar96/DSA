@@ -1,3 +1,11 @@
+/*
+  1) The space complexity increases in this code because of the depth of the call stack which is O(n).
+  Time complexity is O(n).
+
+  2) This code is using both recursion and memoisation.
+
+*/
+
 #include <iostream>
 #include <vector>
 
@@ -6,7 +14,7 @@ using namespace std;
 class Solution {
 public:
     int fib(int n) {
-      if(n<=0) {
+      if(n<=1) {
         return n;
       }
       vector<int> fibonacci_sequence(n+1, -1); 
