@@ -1,5 +1,5 @@
 
-#include <iostrea>
+#include <iostream>
 #include <vector>
 
 using namespace std;
