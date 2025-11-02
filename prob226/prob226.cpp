@@ -45,6 +45,16 @@ void swap_nodes(TreeNode *node) {
   node->right = temp;
 }
 
+int set_level(TreeNode *node, int level) {
+  if(!node) return level;
+  if(node->left) {
+    level++;
+  }
+  if(node->right) {
+    level++;
+  }
+}
+
 int main() {
   
   TreeNode left_left(30);
