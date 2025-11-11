@@ -20,8 +20,6 @@ public:
     
     deque<int> dec_queue;
 
-    
-
     for(int 0 = 1;i<nums.size();i++) {
       int current_num = nums[i];
       
@@ -42,9 +40,6 @@ public:
     return result;
 	}
 };
-
-
-
 
 int main() {
   deque<int> dec_queue;                // use deque, not queue
