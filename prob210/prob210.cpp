@@ -8,9 +8,10 @@ using namespace std;
 
 class Solution {
 public:
-  bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+  vector<int> findOrder(int numCourses, vector<vector<int>>& prerequisites)  {
     vector<vector<int>> adj_list(numCourses);
     vector<int> indegree(numCourses, 0);
+    vector<int> result;
 
     // build adj_list
     for (auto &p : prerequisites) {
@@ -19,7 +20,6 @@ public:
       indegree[a]++;
     }
 
-
     queue<int> q;
     for (int i = 0; i < numCourses; i++)
       if (indegree[i] == 0) q.push(i);
@@ -27,6 +27,7 @@ public:
     int count = 0;
     while (!q.empty()) {		
       int u = q.front();
+      result.push_back(u);
       q.pop();
       count++;
       for (int v : adj_list[u]) {
@@ -35,7 +36,14 @@ public:
       }
     }
 
-    return count == numCourses;
+    if (count == numCourses) {
+      return result;
+    }
+
+    else {
+      return {};
+    }
+
   }
 };
 
