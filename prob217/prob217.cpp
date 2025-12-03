@@ -15,7 +15,7 @@ public:
       if(hashSet.contains(nums[i])) 
         return true;
 
-      hashSet.insert(nums[i])''
+      hashSet.insert(nums[i]);
 
     }
 
