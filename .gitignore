@@ -1,4 +1,6 @@
 twoSum/*.out
 prob*/*.out
 hashing/*.out
+*.out
+*.exe
 

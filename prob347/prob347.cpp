@@ -11,7 +11,7 @@ public:
       frequency[n]++;
   }
 
-  priority_queue< pain<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> min_heap;
+  priority_queue< pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> min_heap;
 
   for(auto &[num, freq]: frequency) {
     min_heap.push({freq, num});
