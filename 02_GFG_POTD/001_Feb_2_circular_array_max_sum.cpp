@@ -22,6 +22,7 @@ Explanation: The circular subarray [3, 4, 5] gives the maximum sum of 12.
 /*
 
 To understand this we need to first understand Kadane's algorirhtm.
+I have completely written a useful algorithm in the named algorithm repository. Following is a correct working code.
 
 */
 
@@ -33,22 +34,32 @@ using namespace std;
 
 class Solution {
   public:
-
-  //KADANE's algorithm
-
-  int maxCircularSum(vector<int> &arr) {
-    
-    int curr = arr[0];
-    int maxSum = arr[0];
-    
-    for (int i = 1; i < arr.size(); i++) {
-      curr = max(arr[i], curr + arr[i]);
-
-      maxSum = max(maxSum, curr);      
+    int maxCircularSum(vector<int> &arr) {
+        if(arr.size() == 1) return arr[0];
+        // code here
+        int total = arr[0];
+        int minSum = arr[0];
+        int maxSum = arr[0];
+        int currMinSum = arr[0];
+        int currMaxSum = arr[0];
+        
+        for(int i = 1;i< arr.size();i++) {
+            total += arr[i];
+            //Kadane's algorithm
+            currMaxSum = max(arr[i], currMaxSum + arr[i]);
+            maxSum = max(maxSum, currMaxSum);
+            
+            currMinSum = min(arr[i], currMinSum + arr[i]);
+            minSum = min(minSum, currMinSum);
+            
+        }
+        
+        if(maxSum < 0)
+            return maxSum;
+            
+        return max(maxSum, total-minSum);
+        
     }
-  
-    return maxSum;
-}
 };
 
 
