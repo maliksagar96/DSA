@@ -29,7 +29,7 @@ class Solution {
   public:
     int count(vector<int>& coins, int sum) {
         vector<int> ways(sum+1, 0);
-        //1 ways to count 0. Chose no coin.
+        //1 ways to count 0. Chose no coin. Actually this is forcibly kept 0 because the way the algorithm is desiged later on. 
         ways[0] = 1;
 
         for(int coin:coins) {
@@ -38,10 +38,6 @@ class Solution {
           }
         }
         
-        for(int way:ways) {
-
-        }
-
     return ways[sum];
        
     }
