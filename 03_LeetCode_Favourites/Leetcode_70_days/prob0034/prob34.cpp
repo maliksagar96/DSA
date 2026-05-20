@@ -20,31 +20,17 @@ public:
       int high = nums.size()-1, low = 0;
       
       //Binary Search for min
-      while(high>=low) {
-        int mid = low + (high-low)/2;
-        if(nums[mid] == target) {
-          minMax[0] = mid;          
-          //move high to go left
-          high = mid - 1;
-        }
-        else if(nums[mid] < target) low = mid + 1;
-        else if(nums[mid] > target) high = mid - 1;
-      }
+      while(low <= high) {
 
+      }
+ 
       high = nums.size()-1, low = 0;
       
       //Binary search for max
-      while(high>=low) {
-        int mid = low + (high-low)/2;
-        if(nums[mid] == target) {
-          minMax[1] = mid;         
-          //move low to go right.
-          low = mid + 1;
-        } 
-        else if(nums[mid] < target) low = mid + 1;
-        else if(nums[mid] > target) high = mid - 1;
-      }
+      while(low <= high) {
 
+      }
+      
       return minMax;
     }
 };

@@ -39,16 +39,16 @@ using namespace std;
 
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) {
-        int maxSum = nums[0];  
-        int currentSum = nums[0];
-        for(int i = 1;i<nums.size();i++) {
-          currentSum += nums[i];
-          if(currentSum < nums[i]) currentSum = nums[i];
-          if(maxSum < currentSum) maxSum = currentSum;
-        }      
-        return maxSum;
-    }
+  int maxSubArray(vector<int>& nums) {
+    int maxSum = nums[0];  
+    int currentSum = nums[0];
+    for(int i = 1;i<nums.size();i++) {
+      currentSum += nums[i];
+      currentSum = max(nums[i], currentSum);
+      if(maxSum < currentSum) maxSum = currentSum;       
+    }      
+    return maxSum;
+  }
 };
 
 int main() {

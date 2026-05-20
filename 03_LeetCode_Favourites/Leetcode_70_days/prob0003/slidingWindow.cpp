@@ -22,12 +22,7 @@
 */
 /*
 
-This is the first Leet code question for which I am finding it difficult to code the brute force version as well. Otherwise bruteforce till now 
-seemed very easy. 
-
-Now how do i even tell the algo, it went from case to case. 
-As and when a faulty case occured i just patched my code up accordingly and the time my code took is way too much. 
-What i would do is tell the general algo and then I will tell the fixes to the bugs that occured for particular cases. 
+This problem is tough even for brute force. 
 
 Algo:
 Add the first char of the string to a hashmap.
@@ -58,22 +53,20 @@ class Solution {
 
       int start = 0, end = 0;
       int windowSize=0;
-      unordered_map<char, int> string1;
+      unordered_map<char, int> hashMap;
       int maxSize = 1;
+      hashMap[s[0]] = 0;
 
-      string1[s[0]] = 0;
-
-      for (int i = 1; i < s.size(); i++) {      
-        
-        if(string1.find(s[i]) != string1.end()) {
+      for (int i = 1; i < s.size(); i++) {              
+        if(hashMap.contains(s[i])) {
           //change start point  
+          start = max(start, hashMap[s[i]] + 1);
         }
 
-        windowSize = i - start;
-        string1[s[i]] = i;
-
+        windowSize = i - start + 1;
+        maxSize = max(maxSize, windowSize);
+        hashMap[s[i]] = i;
       }
-
       
       return maxSize;
   }
