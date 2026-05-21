@@ -28,7 +28,7 @@ public:
         map_t_s[t[0]] = s[0];
 
         for (int i = 1; i < s.size(); i++) {
-            if (map_s_t.find(s[i]) != map_s_t.end()) {
+            if (map_s_t.contains(s[i])) {
                 if (map_s_t[s[i]] != t[i]) {
                     return false;
                 }
