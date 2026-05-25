@@ -19,29 +19,22 @@ public:
 
 class Solution {
 public:
-  
-  ListNode *detectCycle(ListNode *head) {
-    if (!head || !head->next) return nullptr;
+  bool hasCycle(ListNode *head) {
+    if((head == nullptr) || (head->next == nullptr)) return false;
 
     ListNode* slow = head;
-    ListNode* fast = head->next;
-    while(fast != nullptr && fast->next != nullptr) {      
+    ListNode* fast = head;
+
+    while(fast && fast->next) {
       slow = slow->next;
       fast = fast->next->next;
-      if(slow == fast) break;
+      if(slow == fast) return true;
     }    
-
-    if(slow == fast) {
-      slow = head;
-      while(slow != fast){
-        slow = slow->next;
-        fast = fast->next;
-      }
-      return slow; // The start of the cycle
-    }
-    return nullptr; // No cycle detected
+    
+    return true;
   }
 };
+
 
 int main(){
 

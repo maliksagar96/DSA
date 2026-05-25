@@ -19,23 +19,27 @@ public:
 
 class Solution {
 public:
-  bool hasCycle(ListNode *head) {
-    if((head == nullptr) || (head->next == nullptr)) return false;
+  
+  ListNode *detectCycle(ListNode *head) {
+    if (!head || !head->next) return nullptr;
 
     ListNode* slow = head;
-    ListNode* fast = head->next;
-
-    while(fast != nullptr && fast->next != nullptr) {
-      
+    ListNode* fast = head;
+    while(fast && fast->next) {      
       slow = slow->next;
       fast = fast->next->next;
-      if(slow == fast) return true;
+      if(slow == fast) {  
+        slow = head;
+        while(slow != fast){
+          slow = slow->next;
+          fast = fast->next;
+        }
+        return slow;
+      }
     }    
-    cout<<"returning true"<<endl;
-    return true;
+    return nullptr; // No cycle detected
   }
 };
-
 
 int main(){
 

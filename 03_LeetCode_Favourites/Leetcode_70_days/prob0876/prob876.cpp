@@ -25,27 +25,15 @@ class ListNode{
 class Solution {
   public:
   ListNode* middleNode(ListNode* head) {
-      int counter = 0;
-      ListNode* temp = head;
-      while(temp != nullptr) {
-        temp = temp -> next;
-        counter++;
-      }
-      ListNode* middle = new ListNode();
-      ListNode* curr = head;
-      if(counter%2 == 0) {
-        for(int i = 1;i<counter/2 + 1;i++) {      
+      ListNode *slow = head;
+      ListNode *fast = head;
 
-          curr = curr->next;
-        }
-      }
-      else {
-        for(int i = 1;i<counter/2 + 1;i++) {
-          curr = curr->next;
-        }
+      while(fast && fast->next) {
+        slow = slow->next;
+        fast = fast->next->next;
       }
 
-      return curr;
+      return slow;
   }
 
 };
