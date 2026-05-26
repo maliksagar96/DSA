@@ -71,7 +71,7 @@ public:
   }
 
   ListNode* sortList(ListNode* head) {
-    if (!head || !head->next) return head; // base case
+    if (!head || !head->next) return head;
 
     ListNode* mid = findmiddle(head);
     ListNode* left = sortList(head);
