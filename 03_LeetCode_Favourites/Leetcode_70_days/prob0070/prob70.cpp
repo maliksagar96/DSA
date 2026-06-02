@@ -13,6 +13,7 @@ Break the for loop in your mind to visualize it.
 
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -21,18 +22,18 @@ public:
 
   int climbStairs(int n) {
     if(n <=2) return n;
+    
+    vector<int> ways(n+1, 0);
 
-    int* dp = new int[n+1];
-    dp[0] = 1;
-    dp[1] = 1;
-    dp[2] = 2;
+    ways[0] = 0;
+    ways[1] = 1;
+    ways[2] = 2;
 
-    for(int i = 3; i <= n; i++) {
-      dp[i] = dp[i-1] + dp[i-2];
+    for(int i = 3;i<=n;i++) {
+      ways[i] = ways[i-1] + 1;
     }
 
-    return dp[n];
-
+    return ways[n];
   }
 };
 
